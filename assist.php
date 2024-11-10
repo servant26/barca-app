@@ -1,21 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-</head>
-<body>
-    <ul>
-        <li><a href="standings.php">Rank</a></li>
-        <li><a href="score.php">Top Score</a></li>
-        <li><a href="assist.php">Top Assist</a></li>
-        <li><a href="player.php">Daftar Pemain</a></li>
-        <li><a href="history.php">History Pertandingan</a></li>
-    </ul>
-</body>
-</html>
-
 <?php
 
 $curl = curl_init();

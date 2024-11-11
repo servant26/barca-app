@@ -42,11 +42,16 @@
             color: #888;
             margin-top: 5px;
         }
+        .navbar {
+            background: linear-gradient(135deg, #00234d, #005160); /* Warna biru tua dengan gradasi */
+        }
     </style>
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
+<body class="bg-dark text-white">
 <!-- Awal Navbar -->
-<nav class="navbar sticky-top navbar-expand-lg bg-dark navbar-dark">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark">
     <div class="container-fluid m-2 d-flex align-items-center">
         <div class="dropdown">
             <a class="navbar-brand" href="#">
@@ -55,20 +60,28 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item mx-3">
-              <a class="nav-link" href="index.php">Home</a>
-            </li>
-            <li class="nav-item mx-3">
-                <a class="nav-link active" href="#">Match</a>
-            </li>
-            <li class="nav-item mx-3">
-                <a class="nav-link" href="stats.php">Statistic</a>
-            </li>
-            <li class="nav-item mx-3">
-                <a class="nav-link" href="player.php">List Players</a>
-            </li>
-        </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="index.php">Home</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link active" href="#">Match</a>
+                </li>
+                <!-- Dropdown untuk Statistics -->
+                <li class="nav-item dropdown mx-3">
+                    <a class="nav-link no-underline" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Statistics
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="standings.php">Standings</a></li>
+                        <li><a class="dropdown-item" href="topscore.php">Top Score</a></li>
+                        <li><a class="dropdown-item" href="topassist.php">Top Assist</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="player.php">List Players</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
@@ -135,5 +148,24 @@
             }
         ?>
     </div>
+
+<br><br>
+<nav class="navbar navbar-dark bg-dark fixed-bottom d-block d-lg-none">
+    <div class="container-fluid justify-content-around">
+        <a href="index.html" class="nav-link">
+            <img src="pict/home.png" alt="Home" style="width: 24px; height: 24px;" class="icon">
+        </a>
+        <a href="match.html" class="nav-link">
+            <img src="pict/match.png" alt="Match" style="width: 24px; height: 24px;" class="icon">
+        </a>
+        <a href="stats.html" class="nav-link">
+            <img src="pict/stats.png" alt="Stats" style="width: 24px; height: 24px;" class="icon">
+        </a>
+        <a href="player.html" class="nav-link active">
+            <img src="pict/player.png" alt="Player" style="width: 24px; height: 24px;" class="icon">
+        </a>
+    </div>
+</nav>
+
 </body>
 </html>

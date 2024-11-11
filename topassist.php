@@ -3,7 +3,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, [
-	CURLOPT_URL => "https://la-liga2.p.rapidapi.com/teams/standings",
+	CURLOPT_URL => "https://la-liga2.p.rapidapi.com/players/topAssisters",
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_ENCODING => "",
 	CURLOPT_MAXREDIRS => 10,
@@ -33,7 +33,7 @@ if ($err) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barca App - Standings</title>
+    <title>Barca App - Top Assists</title>
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -103,42 +103,30 @@ if ($err) {
 <!-- Akhir Navbar -->
     
 <div class="container mt-4">
-    <h2 class="text-center">Standings</h2>
+    <h2 class="text-center">Top Assists</h2>
     <div class="table-responsive">
         <table class="table table-hover table-dark">
             <thead class="table-header">
                 <tr>
+                    <th scope="col">Name</th>
                     <th scope="col">Team</th>
-                    <th scope="col">Points</th>
-                    <th scope="col">Matches Played</th>
-                    <th scope="col">Wins</th>
-                    <th scope="col">Draws</th>
-                    <th scope="col">Losses</th>
-                    <th scope="col">Goals Scored</th>
-                    <th scope="col">Goals Conceded</th>
-                    <th scope="col">Goal Difference</th>
-                    <th scope="col">Coach</th>
+                    <th scope="col">Assists</th>
+                    <th scope="col">Appearances</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (!empty($data)) : ?>
-                    <?php foreach ($data as $team) : ?>
+                    <?php foreach ($data as $player) : ?>
                         <tr>
-                            <td><?php echo ucwords(htmlspecialchars($team['name'])); ?></td>
-                            <td><?php echo htmlspecialchars($team['points']); ?></td>
-                            <td><?php echo htmlspecialchars($team['matchesPlayed']); ?></td>
-                            <td><?php echo htmlspecialchars($team['wins']); ?></td>
-                            <td><?php echo htmlspecialchars($team['draws']); ?></td>
-                            <td><?php echo htmlspecialchars($team['losses']); ?></td>
-                            <td><?php echo htmlspecialchars($team['goalsScored']); ?></td>
-                            <td><?php echo htmlspecialchars($team['goalsConceded']); ?></td>
-                            <td><?php echo htmlspecialchars($team['goalDifference']); ?></td>
-                            <td><?php echo ucwords(htmlspecialchars($team['coach'])); ?></td>
+                            <td><?php echo htmlspecialchars(ucfirst($player['name'])); ?></td>
+                            <td><?php echo htmlspecialchars(ucfirst($player['team']['name'])); ?></td>
+                            <td><?php echo htmlspecialchars($player['assists']); ?></td>
+                            <td><?php echo htmlspecialchars($player['appearances']); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <tr>
-                        <td colspan="10" class="text-center">No data available</td>
+                        <td colspan="4" class="text-center">No data available</td>
                     </tr>
                 <?php endif; ?>
             </tbody>

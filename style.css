@@ -25,6 +25,12 @@
     width: 100%;
 }
 
+/* Hilangkan efek underline pada elemen dengan kelas no-underline */
+.navbar-nav .no-underline::after {
+    content: none;
+}
+
+
 .icon {
     filter: brightness(0) invert(1); /* Membuat semua ikon menjadi putih */
     transition: filter 0.3s ease, box-shadow 0.3s ease; /* Menambahkan transisi untuk filter dan box-shadow */

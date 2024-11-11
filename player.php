@@ -39,7 +39,7 @@
         }
         /* Tambahkan ini di bawah style Anda yang ada */
         .navbar {
-            background: linear-gradient(135deg, #00234d, #005160); /* Warna biru tua dengan gradasi */
+            background: linear-gradient(135deg, #00234d, #005180); /* Warna biru tua dengan gradasi */
         }
     </style>
     <link rel="stylesheet" href="style.css">
@@ -239,20 +239,31 @@
 <br><br>
 <nav class="navbar navbar-dark bg-dark fixed-bottom d-block d-lg-none">
     <div class="container-fluid justify-content-around">
-        <a href="index.html" class="nav-link">
+        <a href="index.php" class="nav-link">
             <img src="pict/home.png" alt="Home" style="width: 24px; height: 24px;" class="icon">
         </a>
-        <a href="match.html" class="nav-link">
+        <a href="match.php" class="nav-link">
             <img src="pict/match.png" alt="Match" style="width: 24px; height: 24px;" class="icon">
         </a>
-        <a href="stats.html" class="nav-link">
-            <img src="pict/stats.png" alt="Stats" style="width: 24px; height: 24px;" class="icon">
-        </a>
-        <a href="player.html" class="nav-link active">
+
+        <!-- Dropdown menu for Stats, with "dropup" class to toggle upwards -->
+        <div class="nav-item dropdown dropup">
+            <a class="nav-link dropdown-toggle" href="#" id="statsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="pict/stats.png" alt="Stats" style="width: 24px; height: 24px;" class="icon">
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="statsDropdown">
+                <li><a class="dropdown-item" href="standings.php">Standings</a></li>
+                <li><a class="dropdown-item" href="top_score.php">Top Score</a></li>
+                <li><a class="dropdown-item" href="top_assist.php">Top Assist</a></li>
+            </ul>
+        </div>
+
+        <a href="player.php" class="nav-link active">
             <img src="pict/player.png" alt="Player" style="width: 24px; height: 24px;" class="icon">
         </a>
     </div>
 </nav>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

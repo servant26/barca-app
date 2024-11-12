@@ -66,7 +66,7 @@ if ($err) {
 <body>
 <body class="bg-dark text-white">
 <!-- Awal Navbar -->
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+<nav class="navbar sticky-top navbar-expand-lg bg-dark navbar-dark">
     <div class="container-fluid m-2 d-flex align-items-center">
         <div class="dropdown">
             <a class="navbar-brand" href="#">
@@ -74,6 +74,10 @@ if ($err) {
                 <span class="d-inline d-lg-none ms-2 text-white">FC Barcelona</span>
             </a>
         </div>
+        <!-- Navbar Toggler for Hamburger Menu -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item mx-3">
@@ -82,13 +86,13 @@ if ($err) {
                 <li class="nav-item mx-3">
                     <a class="nav-link" href="match.php">Match</a>
                 </li>
-                <!-- Dropdown untuk Statistics -->
+                <!-- Dropdown for Statistics -->
                 <li class="nav-item dropdown mx-3">
-                    <a class="nav-link no-underline active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link active no-underline dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Statistics
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="standings.php">Standings</a></li>
+                        <li><a class="dropdown-item" href="#">Standings</a></li>
                         <li><a class="dropdown-item" href="topscore.php">Top Score</a></li>
                         <li><a class="dropdown-item" href="topassist.php">Top Assist</a></li>
                     </ul>
@@ -109,31 +113,29 @@ if ($err) {
             <thead class="table-header">
                 <tr>
                     <th scope="col">Team</th>
-                    <th scope="col">Points</th>
-                    <th scope="col">Matches Played</th>
-                    <th scope="col">Wins</th>
-                    <th scope="col">Draws</th>
-                    <th scope="col">Losses</th>
-                    <th scope="col">Goals Scored</th>
-                    <th scope="col">Goals Conceded</th>
-                    <th scope="col">Goal Difference</th>
-                    <th scope="col">Coach</th>
+                    <th scope="col">MP</th>
+                    <th scope="col">W</th>
+                    <th scope="col">D</th>
+                    <th scope="col">L</th>
+                    <th scope="col">GS</th>
+                    <th scope="col">GC</th>
+                    <th scope="col">GD</th>
+                    <th scope="col">PT</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (!empty($data)) : ?>
                     <?php foreach ($data as $team) : ?>
                         <tr>
-                            <td><?php echo ucwords(htmlspecialchars($team['name'])); ?></td>
-                            <td><?php echo htmlspecialchars($team['points']); ?></td>
-                            <td><?php echo htmlspecialchars($team['matchesPlayed']); ?></td>
-                            <td><?php echo htmlspecialchars($team['wins']); ?></td>
-                            <td><?php echo htmlspecialchars($team['draws']); ?></td>
-                            <td><?php echo htmlspecialchars($team['losses']); ?></td>
-                            <td><?php echo htmlspecialchars($team['goalsScored']); ?></td>
-                            <td><?php echo htmlspecialchars($team['goalsConceded']); ?></td>
-                            <td><?php echo htmlspecialchars($team['goalDifference']); ?></td>
-                            <td><?php echo ucwords(htmlspecialchars($team['coach'])); ?></td>
+                        <td><?php echo ucwords(htmlspecialchars($team['name'])); ?></td>
+                        <td><?php echo htmlspecialchars($team['matchesPlayed']); ?></td>
+                        <td><?php echo htmlspecialchars($team['wins']); ?></td>
+                        <td><?php echo htmlspecialchars($team['draws']); ?></td>
+                        <td><?php echo htmlspecialchars($team['losses']); ?></td>
+                        <td><?php echo htmlspecialchars($team['goalsScored']); ?></td>
+                        <td><?php echo htmlspecialchars($team['goalsConceded']); ?></td>
+                        <td><?php echo htmlspecialchars($team['goalDifference']); ?></td>
+                        <td><?php echo htmlspecialchars($team['points']); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else : ?>
@@ -147,32 +149,6 @@ if ($err) {
 </div>
 
 <br><br>
-<nav class="navbar navbar-dark bg-dark fixed-bottom d-block d-lg-none">
-    <div class="container-fluid justify-content-around">
-        <a href="index.php" class="nav-link">
-            <img src="pict/home.png" alt="Home" style="width: 24px; height: 24px;" class="icon">
-        </a>
-        <a href="match.php" class="nav-link">
-            <img src="pict/match.png" alt="Match" style="width: 24px; height: 24px;" class="icon">
-        </a>
-
-        <!-- Dropdown menu for Stats, with "dropup" class to toggle upwards -->
-        <div class="nav-item dropdown dropup">
-            <a class="nav-link dropdown-toggle" href="#" id="statsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="pict/stats.png" alt="Stats" style="width: 24px; height: 24px;" class="icon">
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="statsDropdown">
-                <li><a class="dropdown-item" href="standings.php">Standings</a></li>
-                <li><a class="dropdown-item" href="top_score.php">Top Score</a></li>
-                <li><a class="dropdown-item" href="top_assist.php">Top Assist</a></li>
-            </ul>
-        </div>
-
-        <a href="player.php" class="nav-link active">
-            <img src="pict/player.png" alt="Player" style="width: 24px; height: 24px;" class="icon">
-        </a>
-    </div>
-</nav>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
